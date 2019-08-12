@@ -7,10 +7,10 @@
       <router-link to="/lines">lines</router-link>
     </div>
     <div>
-      <router-link to="/block">block</router-link>
+      <router-link to="/sample">sample</router-link>
     </div>
     <div>
-      <router-link to="/sample">sample</router-link>
+      <router-link to="/slash">slash</router-link>
     </div>
   </div>
 </template>

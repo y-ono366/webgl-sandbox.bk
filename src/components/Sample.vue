@@ -12,7 +12,7 @@ export default {
     const height = window.innerHeight;
     const renderer = null;
     const geometry = new THREE.OctahedronGeometry(1, 0);
-    const material = new THREE.MeshNormalMaterial({ color: 0x6699ff });
+    const material = new THREE.MeshNormalMaterial({ color: 0x6699ff, wireframe: true });
     const mesh = new THREE.Mesh(geometry, material);
     const directionalLight = new THREE.DirectionalLight(0xffffff);
     const scene = new THREE.Scene();
