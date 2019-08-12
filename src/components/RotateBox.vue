@@ -3,10 +3,10 @@
 </template>
 
 <script>
-import * as THREE from "three";
+import * as THREE from 'three';
 
 export default {
-  name: "RotateBox",
+  name: 'RotateBox',
   data() {
     const scene = new THREE.Scene();
     const renderer = null;
@@ -18,10 +18,10 @@ export default {
     return { scene, renderer, camera, light, geometry, material, cube };
   },
   mounted() {
-    const $canvas = document.getElementById("canvas");
+    const $canvas = document.getElementById('canvas');
     this.renderer = new THREE.WebGLRenderer({
       antialias: true,
-      canvas: $canvas
+      canvas: $canvas,
     });
 
     this.camera.position.set(0, 0, 2);
@@ -39,10 +39,9 @@ export default {
       this.cube.rotation.y += 0.02;
 
       this.renderer.render(this.scene, this.camera);
-    }
-  }
+    },
+  },
 };
 </script>
 
-<style>
-</style>
+<style></style>

@@ -5,10 +5,12 @@
   "scripts": {
     "serve": "vue-cli-service serve",
     "build": "vue-cli-service build",
-    "lint": "vue-cli-service lint"
+    "lint": "vue-cli-service lint",
+    "pre": "./node_modules/.bin/prettier \"src/**/*.{js,vue,css}\" --write"
   },
   "dependencies": {
     "core-js": "^2.6.5",
+    "prettier": "^1.18.2",
     "three": "^0.107.0",
     "vue": "^2.6.10",
     "vue-router": "^3.1.2"

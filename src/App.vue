@@ -1,6 +1,6 @@
 <template>
   <div id="app">
-      <router-view/>
+    <router-view />
   </div>
 </template>
 
@@ -12,13 +12,12 @@
   text-align: center;
 }
 body {
-    margin:0;
+  margin: 0;
 }
 full-canvas {
   background-color: #000;
   width: 100vw;
   height: 100vh;
-
 
   display: -webkit-box;
   display: -ms-flexbox;
