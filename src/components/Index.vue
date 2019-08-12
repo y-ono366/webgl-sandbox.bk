@@ -1,12 +1,18 @@
 <template>
+  <div>
     <div>
-        <div>
-            <router-link to="/rotate">rotate</router-link>
-        </div>
-        <div>
-            <router-link to="/lines">lines</router-link>
-        </div>
+      <router-link to="/rotate">rotate</router-link>
     </div>
+    <div>
+      <router-link to="/lines">lines</router-link>
+    </div>
+    <div>
+      <router-link to="/block">block</router-link>
+    </div>
+    <div>
+      <router-link to="/sample">sample</router-link>
+    </div>
+  </div>
 </template>
 
 <script>
