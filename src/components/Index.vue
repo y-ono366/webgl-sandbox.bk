@@ -1,5 +1,12 @@
 <template>
-  <router-link to="/rotate">rotate</router-link>
+    <div>
+        <div>
+            <router-link to="/rotate">rotate</router-link>
+        </div>
+        <div>
+            <router-link to="/lines">lines</router-link>
+        </div>
+    </div>
 </template>
 
 <script>

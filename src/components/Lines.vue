@@ -1,5 +1,5 @@
 <template>
-  <canvas id="canvas"></canvas>
+  <canvas id="canvas" class="full-canvas"></canvas>
 </template>
 
 <script>
@@ -56,16 +56,3 @@ export default {
   }
 };
 </script>
-
-<style>
-body {
-  color: #eee;
-  text-align: center;
-  margin: 0px;
-  padding: 0px;
-}
-canvas {
-  overflow: hidden;
-  background-color: #000;
-}
-</style>
