@@ -1,6 +1,5 @@
 <template>
-  <div class="hello">
-  </div>
+  <router-link to="/rotate">rotate</router-link>
 </template>
 
 <script>
