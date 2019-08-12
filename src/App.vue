@@ -1,19 +1,8 @@
 <template>
   <div id="app">
-    <RotateBox/>
+      <router-view/>
   </div>
 </template>
-
-<script>
-import RotateBox from './components/RotateBox'
-
-export default {
-  name: 'app',
-  components: {
-      RotateBox
-  }
-}
-</script>
 
 <style>
 #app {
