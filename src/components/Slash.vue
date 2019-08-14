@@ -14,11 +14,11 @@ export default {
     const scene = new THREE.Scene();
     const geometry = new THREE.Geometry();
     const vertices = [
-      new THREE.Vector3(-1.622, 12.944, 0),
-      new THREE.Vector3(0, 12.944, 0),
-      new THREE.Vector3(-8, 0, 0),
-      new THREE.Vector3(-9.622, -0, 0),
-      new THREE.Vector3(-1.622, 12.944, 0),
+      new THREE.Vector3(3.189, 6.472, 0),
+      new THREE.Vector3(4.811, 6.472, 0),
+      new THREE.Vector3(-3.189, -6.472, 0),
+      new THREE.Vector3(-4.811, -6.472, 0),
+      new THREE.Vector3(3.189, 6.472, 0),
     ];
 
     // const faces = [new THREE.Face3(0, 2, 1)];
@@ -54,7 +54,7 @@ export default {
     this.renderer = new THREE.WebGLRenderer({
       canvas: $canvas,
     });
-    this.camera.position.set(0, 0, 90);
+    this.camera.position.set(0, 0, 100);
 
     for (let i = 0; i < this.vertices.length; i++) {
       this.geometry.vertices.push(this.vertices[i]);
@@ -70,15 +70,16 @@ export default {
     this.scene.add(this.line2);
     this.scene.add(this.line3);
     this.scene.add(this.line4);
-    this.line.position.set(-20.9433, 0, 0);
-    this.line2.position.set(-12.9433, 0, 0);
-    this.line3.position.set(-4.9433, 0, 0);
-    this.line4.position.set(3.0567, 0, 0);
+    this.line.position.set(-10.5, 0, 0);
+    this.line2.position.set(-3.5, 0, 0);
+    this.line3.position.set(3.5, 0, 0);
+    this.line4.position.set(10.5, 0, 0);
 
     this.tick();
   },
   methods: {
     tick() {
+      // this.line.rotation.y += 0.02;
       requestAnimationFrame(this.tick);
       this.renderer.render(this.scene, this.camera);
     },
