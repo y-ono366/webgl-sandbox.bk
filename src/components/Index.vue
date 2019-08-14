@@ -10,7 +10,7 @@
       <router-link to="/sample">sample</router-link>
     </div>
     <div>
-      <router-link to="/slash">slash</router-link>
+      <router-link to="/triangle">triangle</router-link>
     </div>
   </div>
 </template>

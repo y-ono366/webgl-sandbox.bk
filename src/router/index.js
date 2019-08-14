@@ -4,7 +4,7 @@ import Router from 'vue-router';
 import index from '@/components/Index';
 import rotate from '@/components/RotateBox';
 import lines from '@/components/Lines';
-import slash from '@/components/Slash';
+import triangle from '@/components/Triangle';
 import sample from '@/components/Sample';
 
 Vue.use(Router);
@@ -24,8 +24,8 @@ export default new Router({
       component: lines,
     },
     {
-      path: '/slash',
-      component: slash,
+      path: '/triangle',
+      component: triangle,
     },
     {
       path: '/sample',
