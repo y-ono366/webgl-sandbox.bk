@@ -20,10 +20,14 @@ export default {
       new THREE.Vector3(-9.622, -0, 0),
       new THREE.Vector3(-1.622, 12.944, 0),
     ];
+
     // const faces = [new THREE.Face3(0, 2, 1)];
-    const material = new THREE.LineBasicMaterial({ color: 0xFFFFFF });
+    const material = new THREE.LineBasicMaterial({ color: 0xffffff });
     const camera = new THREE.PerspectiveCamera(40, width / height, 1, 1000);
     const line = null;
+    const line2 = null;
+    const line3 = null;
+    const line4 = null;
     // const face_material = null;
     // const face_mesh = null;
     return {
@@ -35,6 +39,9 @@ export default {
       geometry,
       camera,
       line,
+      line2,
+      line3,
+      line4,
       vertices,
       // faces,
       // face_material,
@@ -53,27 +60,25 @@ export default {
       this.geometry.vertices.push(this.vertices[i]);
     }
 
-    // for (let j = 0; j < this.faces.length; j++) {
-    //   this.geometry.faces.push(this.faces[j]);
-    // }
-
-    // this.geometry.computeFaceNormals();
-    // this.geometry.computeVertexNormals();
-    //
-    // this.face_material = new THREE.MeshNormalMaterial();
-    // this.face_mesh = new THREE.Mesh(this.geometry, this.face_material);
-    // this.scene.add(this.face_mesh);
-
     this.renderer.setSize(this.width, this.height);
 
     this.line = new THREE.Line(this.geometry, this.material);
+    this.line2 = new THREE.Line(this.geometry, this.material);
+    this.line3 = new THREE.Line(this.geometry, this.material);
+    this.line4 = new THREE.Line(this.geometry, this.material);
     this.scene.add(this.line);
+    this.scene.add(this.line2);
+    this.scene.add(this.line3);
+    this.scene.add(this.line4);
+    this.line.position.set(-20.9433, 0, 0);
+    this.line2.position.set(-12.9433, 0, 0);
+    this.line3.position.set(-4.9433, 0, 0);
+    this.line4.position.set(3.0567, 0, 0);
 
     this.tick();
   },
   methods: {
     tick() {
-      // this.line.rotation.y += 0.03;
       requestAnimationFrame(this.tick);
       this.renderer.render(this.scene, this.camera);
     },
