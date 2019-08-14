@@ -4,6 +4,7 @@
 
 <script>
 import * as THREE from 'three';
+import AssetsImage from '@/assets/Smoke-Element.png';
 
 export default {
   name: 'Slash',
@@ -21,15 +22,22 @@ export default {
       new THREE.Vector3(3.189, 6.472, 0),
     ];
 
-    // const faces = [new THREE.Face3(0, 2, 1)];
     const material = new THREE.LineBasicMaterial({ color: 0xffffff });
     const camera = new THREE.PerspectiveCamera(40, width / height, 1, 1000);
     const line = null;
     const line2 = null;
     const line3 = null;
     const line4 = null;
-    // const face_material = null;
-    // const face_mesh = null;
+    const smokeTexture = THREE.ImageUtils.loadTexture(AssetsImage);
+    const smokeMaterial = new THREE.MeshLambertMaterial({
+      color: 0xffffff,
+      map: smokeTexture,
+      opacity: 0.2,
+      transparent: true,
+    });
+    const light = new THREE.DirectionalLight(0xffffff, 0.5);
+
+    let smokeParticles = [];
     return {
       width,
       height,
@@ -43,9 +51,9 @@ export default {
       line3,
       line4,
       vertices,
-      // faces,
-      // face_material,
-      // face_mesh,
+      smokeMaterial,
+      smokeParticles,
+      light,
     };
   },
 
@@ -75,13 +83,31 @@ export default {
     this.line3.position.set(3.5, 0, 0);
     this.line4.position.set(10.5, 0, 0);
 
+    let smokeGeo = new THREE.PlaneGeometry(50, 50);
+    for (let p = 0; p < 150; p++) {
+      let particle = new THREE.Mesh(smokeGeo, this.smokeMaterial);
+      particle.position.set(Math.random() * 200 - 100, Math.random() * 200 - 100, 0);
+      particle.rotation.z = Math.random() * 36;
+      this.scene.add(particle);
+      this.smokeParticles.push(particle);
+    }
+
+    this.light.position.set(0, 0, 1);
+    this.scene.add(this.light);
+
     this.tick();
   },
   methods: {
     tick() {
-      // this.line.rotation.y += 0.02;
       requestAnimationFrame(this.tick);
       this.renderer.render(this.scene, this.camera);
+      this.evolveSmoke();
+    },
+    evolveSmoke() {
+      let sp = this.smokeParticles.length;
+      while (sp--) {
+        this.smokeParticles[sp].rotation.z += 0.002;
+      }
     },
   },
 };
