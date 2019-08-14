@@ -12,6 +12,9 @@
     <div>
       <router-link to="/triangle">triangle</router-link>
     </div>
+    <div>
+      <router-link to="/slash">slash</router-link>
+    </div>
   </div>
 </template>
 
