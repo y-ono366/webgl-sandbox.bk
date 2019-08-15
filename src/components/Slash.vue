@@ -22,20 +22,18 @@ export default {
       new THREE.Vector3(3.189, 6.472, 0),
     ];
 
-    const material = new THREE.LineBasicMaterial({ color: 0xffffff });
+    const faces = [new THREE.Face3(4, 3, 2), new THREE.Face3(0, 2, 1)];
+
     const camera = new THREE.PerspectiveCamera(40, width / height, 1, 1000);
-    const line = null;
-    const line2 = null;
-    const line3 = null;
-    const line4 = null;
     const smokeTexture = THREE.ImageUtils.loadTexture(AssetsImage);
     const smokeMaterial = new THREE.MeshLambertMaterial({
       color: 0xffffff,
       map: smokeTexture,
-      opacity: 0.2,
+      opacity: 0.25,
       transparent: true,
     });
     const light = new THREE.DirectionalLight(0xffffff, 0.5);
+    const clock = new THREE.Clock();
 
     let smokeParticles = [];
     return {
@@ -43,17 +41,15 @@ export default {
       height,
       renderer,
       scene,
-      material,
       geometry,
       camera,
-      line,
-      line2,
-      line3,
-      line4,
       vertices,
       smokeMaterial,
       smokeParticles,
       light,
+      faces,
+      clock,
+      smokeTexture,
     };
   },
 
@@ -68,20 +64,28 @@ export default {
       this.geometry.vertices.push(this.vertices[i]);
     }
 
-    this.renderer.setSize(this.width, this.height);
+    for (let j = 0; j < this.faces.length; j++) {
+      this.geometry.faces.push(this.faces[j]);
+    }
 
-    this.line = new THREE.Line(this.geometry, this.material);
-    this.line2 = new THREE.Line(this.geometry, this.material);
-    this.line3 = new THREE.Line(this.geometry, this.material);
-    this.line4 = new THREE.Line(this.geometry, this.material);
-    this.scene.add(this.line);
-    this.scene.add(this.line2);
-    this.scene.add(this.line3);
-    this.scene.add(this.line4);
-    this.line.position.set(-10.5, 0, 0);
-    this.line2.position.set(-3.5, 0, 0);
-    this.line3.position.set(3.5, 0, 0);
-    this.line4.position.set(10.5, 0, 0);
+    const face_material = new THREE.MeshStandardMaterial({ color: 0xff0000, map: this.smokeTexture });
+    const face_mesh = new THREE.Mesh(this.geometry, face_material);
+    const face_mesh2 = new THREE.Mesh(this.geometry, face_material);
+    const face_mesh3 = new THREE.Mesh(this.geometry, face_material);
+    const face_mesh4 = new THREE.Mesh(this.geometry, face_material);
+    this.geometry.computeFaceNormals();
+    this.geometry.computeVertexNormals();
+    this.scene.add(face_mesh);
+    this.scene.add(face_mesh2);
+    this.scene.add(face_mesh3);
+    this.scene.add(face_mesh4);
+
+    face_mesh.position.set(-10.5, 0, 0);
+    face_mesh2.position.set(-3.5, 0, 0);
+    face_mesh3.position.set(3.5, 0, 0);
+    face_mesh4.position.set(10.5, 0, 0);
+
+    this.renderer.setSize(this.width, this.height);
 
     let smokeGeo = new THREE.PlaneGeometry(50, 50);
     for (let p = 0; p < 150; p++) {
@@ -101,12 +105,14 @@ export default {
     tick() {
       requestAnimationFrame(this.tick);
       this.renderer.render(this.scene, this.camera);
+      this.delta = this.clock.getDelta();
       this.evolveSmoke();
     },
     evolveSmoke() {
       let sp = this.smokeParticles.length;
       while (sp--) {
-        this.smokeParticles[sp].rotation.z += 0.002;
+        this.smokeParticles[sp].rotation.z += this.delta * 0.15;
+        //this.smokeParticles[sp].rotation.z += 0.002;
       }
     },
   },
