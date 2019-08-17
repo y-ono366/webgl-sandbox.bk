@@ -4,6 +4,7 @@
 
 <script>
 import * as THREE from 'three';
+import StoneImage from '@/assets/stone.jpg';
 
 export default {
   name: 'Sample',
@@ -12,12 +13,13 @@ export default {
     const height = window.innerHeight;
     const renderer = null;
     const geometry = new THREE.OctahedronGeometry(1, 0);
-    const material = new THREE.MeshNormalMaterial({ color: 0x6699ff, wireframe: true });
-    const mesh = new THREE.Mesh(geometry, material);
     const directionalLight = new THREE.DirectionalLight(0xffffff);
     const scene = new THREE.Scene();
+    const mesh = null;
     const camera = new THREE.PerspectiveCamera(45, width / height, 1, 10000);
-    return { scene, width, height, renderer, camera, mesh, directionalLight };
+    const stoneTexture = THREE.ImageUtils.loadTexture(StoneImage);
+    stoneTexture.minFilter = THREE.LinearFilter;
+    return { scene, width, height, renderer, geometry, camera, mesh, directionalLight, stoneTexture };
   },
 
   mounted() {
@@ -25,6 +27,9 @@ export default {
     this.renderer = new THREE.WebGLRenderer({
       canvas: $canvas,
     });
+
+    const material = new THREE.MeshStandardMaterial({ map: this.stoneTexture });
+    this.mesh = new THREE.Mesh(this.geometry, material);
     this.renderer.setSize(this.width, this.height);
     this.camera.position.set(0, 0, 4);
     this.scene.add(this.mesh);
