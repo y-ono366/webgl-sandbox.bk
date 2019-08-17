@@ -5,7 +5,7 @@
 <script>
 import * as THREE from 'three';
 import AssetsImage from '@/assets/Smoke-Element.png';
-import StoneImage from '@/assets/stone.png';
+import StoneImage from '@/assets/stone.jpg';
 
 export default {
   name: 'Slash',
@@ -72,7 +72,7 @@ export default {
       this.geometry.faces.push(this.faces[j]);
     }
 
-    const face_material = new THREE.MeshStandardMaterial({ /* color: 0xff0000, */ map: this.stoneTexture });
+    const face_material = new THREE.MeshStandardMaterial({ color: 0x808080, map: this.stoneTexture });
     const face_mesh = new THREE.Mesh(this.geometry, face_material);
     const face_mesh2 = new THREE.Mesh(this.geometry, face_material);
     const face_mesh3 = new THREE.Mesh(this.geometry, face_material);
@@ -84,10 +84,10 @@ export default {
     this.scene.add(face_mesh3);
     this.scene.add(face_mesh4);
 
-    face_mesh.position.set(-10.5, 0, 0);
-    face_mesh2.position.set(-3.5, 0, 0);
-    face_mesh3.position.set(3.5, 0, 0);
-    face_mesh4.position.set(10.5, 0, 0);
+    face_mesh.position.set(-10.5, 0, -5);
+    face_mesh2.position.set(-3.5, 0, -5);
+    face_mesh3.position.set(3.5, 0, -5);
+    face_mesh4.position.set(10.5, 0, -5);
 
     this.renderer.setSize(this.width, this.height);
 
