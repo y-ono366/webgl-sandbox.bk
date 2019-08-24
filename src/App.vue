@@ -1,21 +1,18 @@
 <template>
   <Wrapper>
-    <SideBarWrapper>
-      <SideBar />
-    </SideBarWrapper>
+    <Header />
     <router-view />
   </Wrapper>
 </template>
 
 <script>
-import { Wrapper, SideBarWrapper } from './components/styles/Index.js';
-import SideBar from '@/components/SideBar';
+import { Wrapper } from './components/styles/Index.js';
+import Header from '@/components/Header';
 export default {
   name: 'Index',
   components: {
     Wrapper,
-    SideBar,
-    SideBarWrapper,
+    Header,
   },
 };
 </script>

@@ -7,19 +7,25 @@ export const Wrapper = styled.section`
   text-align: center;
 `;
 
-export const StyledTitle = styled.h1`
-  font-size: 1.5em;
-  text-align: center;
-  color: palevioletred;
+export const HeadWrapper = styled.div`
+  padding-top: 35px;
+  padding-bottom: 35px;
+  width: 780px;
+  margin: 0 auto;
+  margin-top: 20px;
+  margin-bottom: 20px;
+  font-family: 'Montserrat', 'sans-serif';
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 `;
 
-export const SideBarWrapper = styled.section`
-  position: fixed;
-  right: 0;
-  width: 17%;
-  height: 100%;
-  box-sizing: border-box;
-  transition: 300ms;
-  z-index: 2;
-  background: #ffffff;
+export const HeadText = styled.h1`
+  font-size: 32px;
+  margin-top: 0px;
+  margin-bottom: 0px;
+  font-family: Montserrat, sans-serif;
+  font-size: 33px;
+  line-height: 36px;
+  font-weight: 400;
+  text-align: left;
 `;
