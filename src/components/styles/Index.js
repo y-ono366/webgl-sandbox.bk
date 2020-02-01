@@ -1,11 +1,11 @@
-import styled from 'vue-styled-components';
+import styled from 'vue-styled-components'
 
 export const Wrapper = styled.section`
   font-family: 'Avenir', Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
-`;
+`
 
 export const HeadWrapper = styled.div`
   padding-top: 35px;
@@ -17,7 +17,7 @@ export const HeadWrapper = styled.div`
   font-family: 'Montserrat', 'sans-serif';
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-`;
+`
 
 export const HeadText = styled.h1`
   font-size: 32px;
@@ -28,4 +28,4 @@ export const HeadText = styled.h1`
   line-height: 36px;
   font-weight: 400;
   text-align: left;
-`;
+`

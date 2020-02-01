@@ -6,15 +6,15 @@
 </template>
 
 <script>
-import { Wrapper } from './components/styles/Index.js';
-import Header from '@/components/Header';
+import { Wrapper } from './components/styles/Index.js'
+import Header from '@/components/Header'
 export default {
   name: 'Index',
   components: {
     Wrapper,
-    Header,
-  },
-};
+    Header
+  }
+}
 </script>
 
 <style>

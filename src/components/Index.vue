@@ -19,16 +19,12 @@
 </template>
 
 <script>
-import { StyledTitle } from './styles/Index.js';
 export default {
   name: 'Index',
   props: {
-    msg: String,
-  },
-  components: {
-    StyledTitle,
-  },
-};
+    msg: String
+  }
+}
 </script>
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->

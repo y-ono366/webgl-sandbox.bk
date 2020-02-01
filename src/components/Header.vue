@@ -5,12 +5,12 @@
 </template>
 
 <script>
-import { HeadWrapper, HeadText } from './styles/Index.js';
+import { HeadWrapper, HeadText } from './styles/Index.js'
 export default {
   name: 'Header',
   components: {
     HeadWrapper,
-    HeadText,
-  },
-};
+    HeadText
+  }
+}
 </script>
